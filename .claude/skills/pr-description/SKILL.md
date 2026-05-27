@@ -1,9 +1,9 @@
 ---
 name: pr-description
-description: Generate a pull request title and description from the current branch diff. Use when the user asks to create a PR, write a PR description, or says "open a PR".
+description: Generate a pull request title and description from the current branch diff. Use when the user asks to create a PR, write a PR description, says "open a PR", "draft a PR", "what should the PR say", or "prepare a pull request".
 argument-hint: ""
 allowed-tools: Bash, Read
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 ## Branch info

@@ -34,13 +34,35 @@ The skills will be available in every Claude Code session.
 
 ## Usage
 
-Once installed, type the command in Claude Code:
+These skills support **two invocation methods** — use whichever feels natural:
+
+### Slash commands (explicit)
 
 ```
 /commit-message          # generates message from staged changes
 /pr-description          # generates PR title + body from branch diff
 /changelog 2.1.0         # generates changelog entry for version 2.1.0
 ```
+
+### Natural language (conversational)
+
+Just ask Claude in plain English — it will automatically detect and invoke the matching skill:
+
+```
+> write a commit message for my staged changes
+> what should the commit message be
+> prepare a commit
+
+> draft a PR description
+> what should the PR say
+> open a pull request
+
+> generate release notes
+> what changed recently
+> prepare a release for version 2.1.0
+```
+
+Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
 
 ## How Claude Code Skills Work
 
@@ -49,6 +71,6 @@ Each skill is a `SKILL.md` file with YAML frontmatter and markdown instructions.
 - **Dynamic context**: Lines starting with `` !`command` `` run before Claude sees the skill, injecting live data (e.g., `git diff`)
 - **Arguments**: `$ARGUMENTS` captures what the user types after the command
 - **Tool permissions**: `allowed-tools` pre-approves tools so Claude doesn't ask for permission
-- **Invocation control**: `disable-model-invocation: true` means only the user can trigger it (not Claude autonomously)
+- **Auto-invocation**: `disable-model-invocation: false` allows Claude to trigger the skill automatically when it matches your natural language prompt. Set to `true` if you want slash-command-only invocation.
 
 See [Claude Code Skills docs](https://code.claude.com/docs/en/skills) for the full reference.

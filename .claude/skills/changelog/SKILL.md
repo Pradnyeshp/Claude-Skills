@@ -1,9 +1,9 @@
 ---
 name: changelog
-description: Generate a changelog entry from recent git commits. Use when the user asks to update the changelog, write release notes, or prepare a release.
+description: Generate a changelog entry from recent git commits. Use when the user asks to update the changelog, write release notes, says "prepare a release", "what changed recently", or "generate release notes".
 argument-hint: "[version number, e.g. 1.2.0]"
 allowed-tools: Bash, Read
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 ## Recent commits

@@ -1,9 +1,9 @@
 ---
 name: commit-message
-description: Generate a conventional commit message from staged git changes. Use when the user asks to commit, write a commit message, or says "commit this".
+description: Generate a conventional commit message from staged git changes. Use when the user asks to commit, write a commit message, says "commit this", "what should the commit message be", or "prepare a commit".
 argument-hint: "[optional scope override]"
 allowed-tools: Bash, Read
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 ## Staged changes
