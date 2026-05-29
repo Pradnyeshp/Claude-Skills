@@ -13,6 +13,10 @@ Collection of helpful Claude Code skills for software development.
 | [Review Diff](/.claude/skills/review-diff/SKILL.md) | `/review-diff` | Review the branch/working-tree diff for bugs, security, and style issues |
 | [Explain](/.claude/skills/explain/SKILL.md) | `/explain <file\|symbol\|diff>` | Explain a file, function, or diff in plain language |
 | [Docstring](/.claude/skills/docstring/SKILL.md) | `/docstring` | Add or update doc comments for changed code in the project's style |
+| [Debug](/.claude/skills/debug/SKILL.md) | `/debug <symptom>` | Diagnose a bug from an error/stack trace/failing test and fix the root cause |
+| [Refactor](/.claude/skills/refactor/SKILL.md) | `/refactor <target> <goal>` | Restructure code toward a goal without changing behavior |
+| [Scaffold](/.claude/skills/scaffold/SKILL.md) | `/scaffold <what>` | Generate boilerplate for a new file/component/module from project conventions |
+| [Deps](/.claude/skills/deps/SKILL.md) | `/deps` | Audit dependencies for outdated, deprecated, or vulnerable packages |
 
 ## Installation
 
@@ -50,6 +54,10 @@ These skills support **two invocation methods** — use whichever feels natural:
 /review-diff             # reviews the diff for bugs, security, style
 /explain src/auth.ts     # explains a file, symbol, or "diff" in plain English
 /docstring               # adds/updates doc comments for changed code
+/debug "TypeError at line 42"  # diagnoses and fixes a bug from the symptom
+/refactor utils.py "split the parser out"  # behavior-preserving restructure
+/scaffold a UserCard React component       # generates boilerplate from conventions
+/deps                    # audits dependencies for outdated/vulnerable packages
 ```
 
 ### Natural language (conversational)
@@ -80,6 +88,18 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add docstrings to the changed code
 > document this function
+
+> why is this test failing
+> I'm getting a NullPointerException here
+
+> refactor this function to be more readable
+> extract the validation logic into its own module
+
+> scaffold a new API endpoint for health checks
+> create a new React component called Sidebar
+
+> are any of my dependencies out of date
+> check for vulnerable packages
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
