@@ -5,10 +5,14 @@ Collection of helpful Claude Code skills for software development.
 ## Skills
 
 | Skill | Command | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | [Commit Message](/.claude/skills/commit-message/SKILL.md) | `/commit-message` | Generate conventional commit messages from staged changes |
 | [PR Description](/.claude/skills/pr-description/SKILL.md) | `/pr-description` | Generate PR title and description from branch diff |
 | [Changelog](/.claude/skills/changelog/SKILL.md) | `/changelog 1.2.0` | Generate changelog entries from recent commits |
+| [Test Gen](/.claude/skills/test-gen/SKILL.md) | `/test-gen` | Generate unit tests for changed code, matching the project's test style |
+| [Review Diff](/.claude/skills/review-diff/SKILL.md) | `/review-diff` | Review the branch/working-tree diff for bugs, security, and style issues |
+| [Explain](/.claude/skills/explain/SKILL.md) | `/explain <file\|symbol\|diff>` | Explain a file, function, or diff in plain language |
+| [Docstring](/.claude/skills/docstring/SKILL.md) | `/docstring` | Add or update doc comments for changed code in the project's style |
 
 ## Installation
 
@@ -38,17 +42,21 @@ These skills support **two invocation methods** — use whichever feels natural:
 
 ### Slash commands (explicit)
 
-```
+```text
 /commit-message          # generates message from staged changes
 /pr-description          # generates PR title + body from branch diff
 /changelog 2.1.0         # generates changelog entry for version 2.1.0
+/test-gen                # writes tests for your changed code
+/review-diff             # reviews the diff for bugs, security, style
+/explain src/auth.ts     # explains a file, symbol, or "diff" in plain English
+/docstring               # adds/updates doc comments for changed code
 ```
 
 ### Natural language (conversational)
 
 Just ask Claude in plain English — it will automatically detect and invoke the matching skill:
 
-```
+```text
 > write a commit message for my staged changes
 > what should the commit message be
 > prepare a commit
@@ -60,6 +68,18 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 > generate release notes
 > what changed recently
 > prepare a release for version 2.1.0
+
+> write tests for my changes
+> what's untested in this file
+
+> review my code before I commit
+> spot bugs in the diff
+
+> what does this function do
+> walk me through src/auth.ts
+
+> add docstrings to the changed code
+> document this function
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
