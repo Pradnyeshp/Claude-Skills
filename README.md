@@ -17,6 +17,10 @@ Collection of helpful Claude Code skills for software development.
 | [Refactor](/.claude/skills/refactor/SKILL.md) | `/refactor <target> <goal>` | Restructure code toward a goal without changing behavior |
 | [Scaffold](/.claude/skills/scaffold/SKILL.md) | `/scaffold <what>` | Generate boilerplate for a new file/component/module from project conventions |
 | [Deps](/.claude/skills/deps/SKILL.md) | `/deps` | Audit dependencies for outdated, deprecated, or vulnerable packages |
+| [Onboard](/.claude/skills/onboard/SKILL.md) | `/onboard` | Orient to an unfamiliar repo — how to run it, architecture, where to start |
+| [Regex](/.claude/skills/regex/SKILL.md) | `/regex <description>` | Build, explain, or debug a regex with examples and test cases |
+| [Optimize](/.claude/skills/optimize/SKILL.md) | `/optimize <target>` | Find and fix performance bottlenecks while preserving behavior |
+| [Tech Debt](/.claude/skills/tech-debt/SKILL.md) | `/tech-debt` | Scan for TODO/FIXME markers and code smells, triaged into an action list |
 
 ## Installation
 
@@ -58,6 +62,10 @@ These skills support **two invocation methods** — use whichever feels natural:
 /refactor utils.py "split the parser out"  # behavior-preserving restructure
 /scaffold a UserCard React component       # generates boilerplate from conventions
 /deps                    # audits dependencies for outdated/vulnerable packages
+/onboard                 # orients you to an unfamiliar repo
+/regex "match an email address"  # builds a regex with examples and tests
+/optimize parser.js      # finds and fixes performance bottlenecks
+/tech-debt               # scans and triages TODOs and code smells
 ```
 
 ### Natural language (conversational)
@@ -100,6 +108,18 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > are any of my dependencies out of date
 > check for vulnerable packages
+
+> help me understand this repo
+> how do I run this project
+
+> write a regex for a valid email
+> why doesn't this pattern match
+
+> this function is slow, speed it up
+> reduce the latency of this endpoint
+
+> find the tech debt in this codebase
+> list all the TODOs and FIXMEs
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
