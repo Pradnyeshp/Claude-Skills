@@ -21,6 +21,10 @@ Collection of helpful Claude Code skills for software development.
 | [Regex](/.claude/skills/regex/SKILL.md) | `/regex <description>` | Build, explain, or debug a regex with examples and test cases |
 | [Optimize](/.claude/skills/optimize/SKILL.md) | `/optimize <target>` | Find and fix performance bottlenecks while preserving behavior |
 | [Tech Debt](/.claude/skills/tech-debt/SKILL.md) | `/tech-debt` | Scan for TODO/FIXME markers and code smells, triaged into an action list |
+| [Dockerize](/.claude/skills/dockerize/SKILL.md) | `/dockerize` | Generate a production-ready Dockerfile, .dockerignore, and optional compose |
+| [CI Setup](/.claude/skills/ci-setup/SKILL.md) | `/ci-setup` | Generate a CI pipeline (GitHub Actions) that lints, tests, and builds |
+| [SQL](/.claude/skills/sql/SKILL.md) | `/sql <request>` | Write, explain, or optimize a SQL query for the project's dialect |
+| [Bisect](/.claude/skills/bisect/SKILL.md) | `/bisect <symptom>` | Find the commit that introduced a regression via git bisect |
 
 ## Installation
 
@@ -66,6 +70,10 @@ These skills support **two invocation methods** — use whichever feels natural:
 /regex "match an email address"  # builds a regex with examples and tests
 /optimize parser.js      # finds and fixes performance bottlenecks
 /tech-debt               # scans and triages TODOs and code smells
+/dockerize               # generates a Dockerfile + .dockerignore for the project
+/ci-setup                # generates a CI pipeline (GitHub Actions by default)
+/sql "top 10 customers by revenue"  # writes, explains, or optimizes a SQL query
+/bisect "login broke since v1.2.0"  # finds the commit that caused a regression
 ```
 
 ### Natural language (conversational)
@@ -120,6 +128,18 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > find the tech debt in this codebase
 > list all the TODOs and FIXMEs
+
+> dockerize this app
+> write a Dockerfile for this project
+
+> set up GitHub Actions for this repo
+> add a CI pipeline that runs my tests
+
+> write a SQL query for the top 10 customers by revenue
+> why is this query slow
+
+> find the commit that broke login
+> bisect this regression since the last release
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
