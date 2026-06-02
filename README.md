@@ -25,6 +25,10 @@ Collection of helpful Claude Code skills for software development.
 | [CI Setup](/.claude/skills/ci-setup/SKILL.md) | `/ci-setup` | Generate a CI pipeline (GitHub Actions) that lints, tests, and builds |
 | [SQL](/.claude/skills/sql/SKILL.md) | `/sql <request>` | Write, explain, or optimize a SQL query for the project's dialect |
 | [Bisect](/.claude/skills/bisect/SKILL.md) | `/bisect <symptom>` | Find the commit that introduced a regression via git bisect |
+| [Migrate](/.claude/skills/migrate/SKILL.md) | `/migrate <change>` | Apply a sweeping mechanical change across the codebase, then verify |
+| [API Docs](/.claude/skills/api-docs/SKILL.md) | `/api-docs` | Generate OpenAPI or markdown docs from the project's route handlers |
+| [Gitignore](/.claude/skills/gitignore/SKILL.md) | `/gitignore` | Generate/tighten .gitignore and flag already-tracked files to untrack |
+| [Type Annotate](/.claude/skills/type-annotate/SKILL.md) | `/type-annotate` | Add type hints/annotations matching the project's typing strictness |
 
 ## Installation
 
@@ -74,6 +78,10 @@ These skills support **two invocation methods** — use whichever feels natural:
 /ci-setup                # generates a CI pipeline (GitHub Actions by default)
 /sql "top 10 customers by revenue"  # writes, explains, or optimizes a SQL query
 /bisect "login broke since v1.2.0"  # finds the commit that caused a regression
+/migrate "replace moment with date-fns"  # applies a sweeping change, then verifies
+/api-docs                # generates API docs from the route handlers
+/gitignore               # generates/tightens .gitignore for the stack
+/type-annotate           # adds type hints/annotations to untyped code
 ```
 
 ### Natural language (conversational)
@@ -140,6 +148,18 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > find the commit that broke login
 > bisect this regression since the last release
+
+> rename getUser to fetchUser everywhere
+> replace every use of moment with date-fns
+
+> document the API endpoints
+> generate an OpenAPI spec for these routes
+
+> create a gitignore for this project
+> what should I stop tracking in git
+
+> add type hints to this file
+> fix the any types in this module
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
