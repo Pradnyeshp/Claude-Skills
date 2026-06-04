@@ -29,6 +29,9 @@ Collection of helpful Claude Code skills for software development.
 | [API Docs](/.claude/skills/api-docs/SKILL.md) | `/api-docs` | Generate OpenAPI or markdown docs from the project's route handlers |
 | [Gitignore](/.claude/skills/gitignore/SKILL.md) | `/gitignore` | Generate/tighten .gitignore and flag already-tracked files to untrack |
 | [Type Annotate](/.claude/skills/type-annotate/SKILL.md) | `/type-annotate` | Add type hints/annotations matching the project's typing strictness |
+| [Env Example](/.claude/skills/env-example/SKILL.md) | `/env-example` | Scan code for env vars and generate/update a safe .env.example |
+| [Resolve Conflicts](/.claude/skills/resolve-conflicts/SKILL.md) | `/resolve-conflicts` | Walk through and safely resolve git merge/rebase/cherry-pick conflicts |
+| [Lint Fix](/.claude/skills/lint-fix/SKILL.md) | `/lint-fix` | Detect the project's linter/formatter, run it, and fix the findings |
 
 ## Installation
 
@@ -82,6 +85,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /api-docs                # generates API docs from the route handlers
 /gitignore               # generates/tightens .gitignore for the stack
 /type-annotate           # adds type hints/annotations to untyped code
+/env-example             # generates a .env.example from env vars used in code
+/resolve-conflicts       # walks through and resolves git merge/rebase conflicts
+/lint-fix                # runs the project's linter/formatter and fixes findings
 ```
 
 ### Natural language (conversational)
@@ -160,6 +166,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add type hints to this file
 > fix the any types in this module
+
+> what env vars does this project need
+> generate a .env.example
+
+> help me resolve these merge conflicts
+> finish this rebase, I have conflicts
+
+> fix the lint errors
+> run the formatter and clean up warnings
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
