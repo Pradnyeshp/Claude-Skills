@@ -32,6 +32,7 @@ Collection of helpful Claude Code skills for software development.
 | [Env Example](/.claude/skills/env-example/SKILL.md) | `/env-example` | Scan code for env vars and generate/update a safe .env.example |
 | [Resolve Conflicts](/.claude/skills/resolve-conflicts/SKILL.md) | `/resolve-conflicts` | Walk through and safely resolve git merge/rebase/cherry-pick conflicts |
 | [Lint Fix](/.claude/skills/lint-fix/SKILL.md) | `/lint-fix` | Detect the project's linter/formatter, run it, and fix the findings |
+| [Readme](/.claude/skills/readme/SKILL.md) | `/readme` | Generate or update a project README from the codebase |
 
 ## Installation
 
@@ -88,6 +89,7 @@ These skills support **two invocation methods** — use whichever feels natural:
 /env-example             # generates a .env.example from env vars used in code
 /resolve-conflicts       # walks through and resolves git merge/rebase conflicts
 /lint-fix                # runs the project's linter/formatter and fixes findings
+/readme                  # generates or updates the project README from the codebase
 ```
 
 ### Natural language (conversational)
@@ -175,6 +177,9 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > fix the lint errors
 > run the formatter and clean up warnings
+
+> write a README for this project
+> my README is out of date, update it
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
