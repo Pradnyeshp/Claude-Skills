@@ -33,6 +33,9 @@ Collection of helpful Claude Code skills for software development.
 | [Resolve Conflicts](/.claude/skills/resolve-conflicts/SKILL.md) | `/resolve-conflicts` | Walk through and safely resolve git merge/rebase/cherry-pick conflicts |
 | [Lint Fix](/.claude/skills/lint-fix/SKILL.md) | `/lint-fix` | Detect the project's linter/formatter, run it, and fix the findings |
 | [Readme](/.claude/skills/readme/SKILL.md) | `/readme` | Generate or update a project README from the codebase |
+| [Secrets Scan](/.claude/skills/secrets-scan/SKILL.md) | `/secrets-scan` | Scan the working tree and git history for hardcoded secrets |
+| [Release](/.claude/skills/release/SKILL.md) | `/release 1.4.0` | Bump version, update changelog, and tag a release |
+| [Coverage](/.claude/skills/coverage/SKILL.md) | `/coverage` | Run tests with coverage and report the riskiest gaps |
 
 ## Installation
 
@@ -90,6 +93,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /resolve-conflicts       # walks through and resolves git merge/rebase conflicts
 /lint-fix                # runs the project's linter/formatter and fixes findings
 /readme                  # generates or updates the project README from the codebase
+/secrets-scan            # scans the tree and git history for hardcoded secrets
+/release 1.4.0           # bumps version, updates changelog, and tags the release
+/coverage                # runs tests with coverage and reports the riskiest gaps
 ```
 
 ### Natural language (conversational)
@@ -180,6 +186,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > write a README for this project
 > my README is out of date, update it
+
+> scan for hardcoded secrets
+> did I commit an API key anywhere
+
+> cut a minor release
+> bump the version and tag it
+
+> what's my test coverage
+> where are the coverage gaps
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
