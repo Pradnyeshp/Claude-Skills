@@ -36,6 +36,9 @@ Collection of helpful Claude Code skills for software development.
 | [Secrets Scan](/.claude/skills/secrets-scan/SKILL.md) | `/secrets-scan` | Scan the working tree and git history for hardcoded secrets |
 | [Release](/.claude/skills/release/SKILL.md) | `/release 1.4.0` | Bump version, update changelog, and tag a release |
 | [Coverage](/.claude/skills/coverage/SKILL.md) | `/coverage` | Run tests with coverage and report the riskiest gaps |
+| [Pre-commit](/.claude/skills/pre-commit/SKILL.md) | `/pre-commit` | Set up pre-commit hooks that lint, format, and check before commits |
+| [License](/.claude/skills/license/SKILL.md) | `/license MIT` | Add a LICENSE file (and optional headers) with the right SPDX text |
+| [Seed](/.claude/skills/seed/SKILL.md) | `/seed` | Generate realistic seed/fixture data matching the project's schema |
 
 ## Installation
 
@@ -96,6 +99,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /secrets-scan            # scans the tree and git history for hardcoded secrets
 /release 1.4.0           # bumps version, updates changelog, and tags the release
 /coverage                # runs tests with coverage and reports the riskiest gaps
+/pre-commit              # sets up pre-commit hooks (lint, format, check)
+/license MIT             # adds a LICENSE file with the right SPDX text
+/seed                    # generates seed/fixture data matching the schema
 ```
 
 ### Natural language (conversational)
@@ -195,6 +201,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > what's my test coverage
 > where are the coverage gaps
+
+> set up pre-commit hooks
+> run the linter before every commit
+
+> add an MIT license to this project
+> what license should I use
+
+> generate seed data for the database
+> create fixtures for my models
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
