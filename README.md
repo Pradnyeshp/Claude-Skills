@@ -39,6 +39,9 @@ Collection of helpful Claude Code skills for software development.
 | [Pre-commit](/.claude/skills/pre-commit/SKILL.md) | `/pre-commit` | Set up pre-commit hooks that lint, format, and check before commits |
 | [License](/.claude/skills/license/SKILL.md) | `/license MIT` | Add a LICENSE file (and optional headers) with the right SPDX text |
 | [Seed](/.claude/skills/seed/SKILL.md) | `/seed` | Generate realistic seed/fixture data matching the project's schema |
+| [Dead Code](/.claude/skills/dead-code/SKILL.md) | `/dead-code` | Find unused exports, functions, imports, files, and dependencies |
+| [Diagram](/.claude/skills/diagram/SKILL.md) | `/diagram <what>` | Generate a Mermaid architecture/ER/sequence diagram from the code |
+| [Benchmark](/.claude/skills/benchmark/SKILL.md) | `/benchmark <target>` | Measure runtime/throughput/memory and establish a baseline |
 
 ## Installation
 
@@ -102,6 +105,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /pre-commit              # sets up pre-commit hooks (lint, format, check)
 /license MIT             # adds a LICENSE file with the right SPDX text
 /seed                    # generates seed/fixture data matching the schema
+/dead-code               # finds unused exports, imports, files, and deps
+/diagram the architecture  # generates a Mermaid diagram from the code
+/benchmark parser.js     # measures runtime/throughput and sets a baseline
 ```
 
 ### Natural language (conversational)
@@ -210,6 +216,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > generate seed data for the database
 > create fixtures for my models
+
+> find dead code in this project
+> what imports are unused
+
+> draw a diagram of the architecture
+> generate an ER diagram of the models
+
+> benchmark this function
+> what's the baseline performance here
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
