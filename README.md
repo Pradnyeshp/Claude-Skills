@@ -42,6 +42,9 @@ Collection of helpful Claude Code skills for software development.
 | [Dead Code](/.claude/skills/dead-code/SKILL.md) | `/dead-code` | Find unused exports, functions, imports, files, and dependencies |
 | [Diagram](/.claude/skills/diagram/SKILL.md) | `/diagram <what>` | Generate a Mermaid architecture/ER/sequence diagram from the code |
 | [Benchmark](/.claude/skills/benchmark/SKILL.md) | `/benchmark <target>` | Measure runtime/throughput/memory and establish a baseline |
+| [i18n](/.claude/skills/i18n/SKILL.md) | `/i18n` | Extract hardcoded UI strings into the project's locale files |
+| [DB Migrate](/.claude/skills/db-migrate/SKILL.md) | `/db-migrate <change>` | Generate a schema migration with a safe up and down |
+| [Squash](/.claude/skills/squash/SKILL.md) | `/squash` | Clean up a branch's commit history before merge, safely |
 
 ## Installation
 
@@ -108,6 +111,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /dead-code               # finds unused exports, imports, files, and deps
 /diagram the architecture  # generates a Mermaid diagram from the code
 /benchmark parser.js     # measures runtime/throughput and sets a baseline
+/i18n                    # extracts hardcoded UI strings into locale files
+/db-migrate "add phone column to users"  # generates a schema migration
+/squash                  # cleans up the branch's commit history before merge
 ```
 
 ### Natural language (conversational)
@@ -225,6 +231,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > benchmark this function
 > what's the baseline performance here
+
+> extract these strings for translation
+> internationalize this component
+
+> create a migration to add a phone column
+> generate a schema migration for this change
+
+> squash my commits before merging
+> clean up the commit history on this branch
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
