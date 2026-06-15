@@ -45,6 +45,9 @@ Collection of helpful Claude Code skills for software development.
 | [i18n](/.claude/skills/i18n/SKILL.md) | `/i18n` | Extract hardcoded UI strings into the project's locale files |
 | [DB Migrate](/.claude/skills/db-migrate/SKILL.md) | `/db-migrate <change>` | Generate a schema migration with a safe up and down |
 | [Squash](/.claude/skills/squash/SKILL.md) | `/squash` | Clean up a branch's commit history before merge, safely |
+| [a11y](/.claude/skills/a11y/SKILL.md) | `/a11y` | Audit the UI for accessibility issues and fix them against WCAG |
+| [Typecheck](/.claude/skills/typecheck/SKILL.md) | `/typecheck` | Run the type checker and fix reported errors without suppressing |
+| [Error Handling](/.claude/skills/error-handling/SKILL.md) | `/error-handling` | Audit and harden error handling — swallowed errors, missing boundaries |
 
 ## Installation
 
@@ -114,6 +117,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /i18n                    # extracts hardcoded UI strings into locale files
 /db-migrate "add phone column to users"  # generates a schema migration
 /squash                  # cleans up the branch's commit history before merge
+/a11y                    # audits the UI for accessibility issues and fixes them
+/typecheck               # runs the type checker and fixes the reported errors
+/error-handling          # audits and hardens error handling
 ```
 
 ### Natural language (conversational)
@@ -240,6 +246,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > squash my commits before merging
 > clean up the commit history on this branch
+
+> check this page for accessibility issues
+> add aria labels and fix contrast
+
+> fix the type errors
+> make tsc pass
+
+> improve the error handling here
+> fix these swallowed exceptions
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
