@@ -48,6 +48,9 @@ Collection of helpful Claude Code skills for software development.
 | [a11y](/.claude/skills/a11y/SKILL.md) | `/a11y` | Audit the UI for accessibility issues and fix them against WCAG |
 | [Typecheck](/.claude/skills/typecheck/SKILL.md) | `/typecheck` | Run the type checker and fix reported errors without suppressing |
 | [Error Handling](/.claude/skills/error-handling/SKILL.md) | `/error-handling` | Audit and harden error handling — swallowed errors, missing boundaries |
+| [Logging](/.claude/skills/logging/SKILL.md) | `/logging` | Add structured, leveled, contextual logging without leaking secrets |
+| [E2E](/.claude/skills/e2e/SKILL.md) | `/e2e <flow>` | Write end-to-end/integration tests that drive the app like a user |
+| [Validate](/.claude/skills/validate/SKILL.md) | `/validate <boundary>` | Add input validation at boundaries, failing safely on bad input |
 
 ## Installation
 
@@ -120,6 +123,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /a11y                    # audits the UI for accessibility issues and fixes them
 /typecheck               # runs the type checker and fixes the reported errors
 /error-handling          # audits and hardens error handling
+/logging                 # adds structured, leveled logging without leaking secrets
+/e2e "login then checkout"  # writes an end-to-end test for the flow
+/validate "the POST /users body"  # adds input validation at the boundary
 ```
 
 ### Natural language (conversational)
@@ -255,6 +261,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > improve the error handling here
 > fix these swallowed exceptions
+
+> add structured logging to this module
+> what should I log in this handler
+
+> write an end-to-end test for the checkout flow
+> set up Playwright and test the login journey
+
+> add validation to this request body
+> add a zod schema for these params
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
