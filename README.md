@@ -51,6 +51,9 @@ Collection of helpful Claude Code skills for software development.
 | [Logging](/.claude/skills/logging/SKILL.md) | `/logging` | Add structured, leveled, contextual logging without leaking secrets |
 | [E2E](/.claude/skills/e2e/SKILL.md) | `/e2e <flow>` | Write end-to-end/integration tests that drive the app like a user |
 | [Validate](/.claude/skills/validate/SKILL.md) | `/validate <boundary>` | Add input validation at boundaries, failing safely on bad input |
+| [Contributing](/.claude/skills/contributing/SKILL.md) | `/contributing` | Generate a CONTRIBUTING.md from the project's real dev workflow |
+| [GraphQL](/.claude/skills/graphql/SKILL.md) | `/graphql <request>` | Write, explain, or optimize a GraphQL operation or schema |
+| [Healthcheck](/.claude/skills/healthcheck/SKILL.md) | `/healthcheck` | Add health/readiness/liveness endpoints that probe dependencies |
 
 ## Installation
 
@@ -126,6 +129,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /logging                 # adds structured, leveled logging without leaking secrets
 /e2e "login then checkout"  # writes an end-to-end test for the flow
 /validate "the POST /users body"  # adds input validation at the boundary
+/contributing            # generates a CONTRIBUTING.md from the dev workflow
+/graphql "user with last 5 orders"  # writes/explains/optimizes a GraphQL op
+/healthcheck             # adds health/readiness/liveness endpoints
 ```
 
 ### Natural language (conversational)
@@ -270,6 +276,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add validation to this request body
 > add a zod schema for these params
+
+> write a CONTRIBUTING guide for this repo
+> document the dev workflow
+
+> write a GraphQL query for a user with their orders
+> why is this resolver slow
+
+> add a health check endpoint
+> add readiness and liveness probes for Kubernetes
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
