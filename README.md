@@ -54,6 +54,9 @@ Collection of helpful Claude Code skills for software development.
 | [Contributing](/.claude/skills/contributing/SKILL.md) | `/contributing` | Generate a CONTRIBUTING.md from the project's real dev workflow |
 | [GraphQL](/.claude/skills/graphql/SKILL.md) | `/graphql <request>` | Write, explain, or optimize a GraphQL operation or schema |
 | [Healthcheck](/.claude/skills/healthcheck/SKILL.md) | `/healthcheck` | Add health/readiness/liveness endpoints that probe dependencies |
+| [Mock](/.claude/skills/mock/SKILL.md) | `/mock <dep>` | Generate test doubles for a unit's dependencies in the project's style |
+| [Rate Limit](/.claude/skills/rate-limit/SKILL.md) | `/rate-limit <policy>` | Add rate limiting/throttling to endpoints against abuse |
+| [Cache](/.claude/skills/cache/SKILL.md) | `/cache <target>` | Add a caching layer with correct keys, TTL, and invalidation |
 
 ## Installation
 
@@ -132,6 +135,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /contributing            # generates a CONTRIBUTING.md from the dev workflow
 /graphql "user with last 5 orders"  # writes/explains/optimizes a GraphQL op
 /healthcheck             # adds health/readiness/liveness endpoints
+/mock "the payment client"  # generates a test double in the project's style
+/rate-limit "login to 5/min per IP"  # adds rate limiting to an endpoint
+/cache "the getUser query"  # adds a caching layer with TTL and invalidation
 ```
 
 ### Natural language (conversational)
@@ -285,6 +291,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add a health check endpoint
 > add readiness and liveness probes for Kubernetes
+
+> mock the database in this test
+> create a stub for the payment client
+
+> add rate limiting to the login endpoint
+> throttle this API to prevent abuse
+
+> cache the result of this query
+> memoize this expensive function
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
