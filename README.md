@@ -57,6 +57,9 @@ Collection of helpful Claude Code skills for software development.
 | [Mock](/.claude/skills/mock/SKILL.md) | `/mock <dep>` | Generate test doubles for a unit's dependencies in the project's style |
 | [Rate Limit](/.claude/skills/rate-limit/SKILL.md) | `/rate-limit <policy>` | Add rate limiting/throttling to endpoints against abuse |
 | [Cache](/.claude/skills/cache/SKILL.md) | `/cache <target>` | Add a caching layer with correct keys, TTL, and invalidation |
+| [Feature Flag](/.claude/skills/feature-flag/SKILL.md) | `/feature-flag <feature>` | Gate a feature behind a flag to ship dark and roll back safely |
+| [Codeowners](/.claude/skills/codeowners/SKILL.md) | `/codeowners` | Generate a CODEOWNERS file mapping paths to owning teams |
+| [Prune Branches](/.claude/skills/prune-branches/SKILL.md) | `/prune-branches` | Safely clean up merged/stale local and remote branches |
 
 ## Installation
 
@@ -138,6 +141,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /mock "the payment client"  # generates a test double in the project's style
 /rate-limit "login to 5/min per IP"  # adds rate limiting to an endpoint
 /cache "the getUser query"  # adds a caching layer with TTL and invalidation
+/feature-flag "the new checkout as new_checkout"  # gates a feature behind a flag
+/codeowners              # generates a CODEOWNERS file mapping paths to teams
+/prune-branches          # safely cleans up merged/stale branches
 ```
 
 ### Natural language (conversational)
@@ -300,6 +306,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > cache the result of this query
 > memoize this expensive function
+
+> put this feature behind a flag
+> add a feature toggle for the new checkout
+
+> set up a CODEOWNERS file
+> auto-assign reviewers by directory
+
+> clean up merged branches
+> which branches can I safely delete
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
