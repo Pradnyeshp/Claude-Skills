@@ -71,7 +71,7 @@ Copy the `.claude/skills/` folder into your project root:
 cp -r .claude/skills/ /path/to/your/project/.claude/skills/
 ```
 
-The skills will be available as `/commit-message`, `/pr-description`, and `/changelog` inside that project.
+All of the skills above (`/commit-message`, `/pr-description`, `/changelog`, and the rest) will be available inside that project.
 
 ### Option 2: Install globally (all projects)
 
