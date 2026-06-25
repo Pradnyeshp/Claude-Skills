@@ -60,6 +60,9 @@ Collection of helpful Claude Code skills for software development.
 | [Feature Flag](/.claude/skills/feature-flag/SKILL.md) | `/feature-flag <feature>` | Gate a feature behind a flag to ship dark and roll back safely |
 | [Codeowners](/.claude/skills/codeowners/SKILL.md) | `/codeowners` | Generate a CODEOWNERS file mapping paths to owning teams |
 | [Prune Branches](/.claude/skills/prune-branches/SKILL.md) | `/prune-branches` | Safely clean up merged/stale local and remote branches |
+| [Retry](/.claude/skills/retry/SKILL.md) | `/retry <call>` | Add retry-with-backoff to a flaky external call, safely for idempotent ops |
+| [Security Headers](/.claude/skills/security-headers/SKILL.md) | `/security-headers` | Add/harden CSP, HSTS, CORS, and friends to defend against XSS and clickjacking |
+| [Flaky Test](/.claude/skills/flaky-test/SKILL.md) | `/flaky-test <test>` | Find and fix the source of a test's nondeterminism, not mask it with retries |
 
 ## Installation
 
@@ -144,6 +147,9 @@ These skills support **two invocation methods** — use whichever feels natural:
 /feature-flag "the new checkout as new_checkout"  # gates a feature behind a flag
 /codeowners              # generates a CODEOWNERS file mapping paths to teams
 /prune-branches          # safely cleans up merged/stale branches
+/retry "the payment API client"  # adds retry-with-backoff to a flaky call
+/security-headers        # adds/hardens CSP, HSTS, CORS, and other headers
+/flaky-test "the checkout test"  # finds and fixes the source of test flakiness
 ```
 
 ### Natural language (conversational)
@@ -315,6 +321,15 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > clean up merged branches
 > which branches can I safely delete
+
+> add a retry with backoff to this API call
+> this request fails intermittently, make it resilient
+
+> add security headers to the app
+> set up a Content-Security-Policy and lock down CORS
+
+> this test is flaky, fix it
+> why does this test pass sometimes and fail other times
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
