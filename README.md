@@ -1,5 +1,12 @@
 # Claude-Skills
 
+[![CI](https://img.shields.io/github/actions/workflow/status/Pradnyeshp/Claude-Skills/ci.yml?branch=main&label=CI)](https://github.com/Pradnyeshp/Claude-Skills/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Pradnyeshp/Claude-Skills)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-57-blue)](#skills)
+![Last commit](https://img.shields.io/github/last-commit/Pradnyeshp/Claude-Skills)
+[![Stars](https://img.shields.io/github/stars/Pradnyeshp/Claude-Skills?style=social)](https://github.com/Pradnyeshp/Claude-Skills/stargazers)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+
 Collection of helpful Claude Code skills for software development.
 
 ## Skills
@@ -344,3 +351,17 @@ Each skill is a `SKILL.md` file with YAML frontmatter and markdown instructions.
 - **Auto-invocation**: `disable-model-invocation: false` allows Claude to trigger the skill automatically when it matches your natural language prompt. Set to `true` if you want slash-command-only invocation.
 
 See [Claude Code Skills docs](https://code.claude.com/docs/en/skills) for the full reference.
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for how the repo
+is laid out and how to add a new skill. Before opening a PR, run the validator
+(the same check CI runs):
+
+```bash
+python3 scripts/validate_skills.py
+```
+
+## License
+
+Released under the [MIT License](LICENSE).
