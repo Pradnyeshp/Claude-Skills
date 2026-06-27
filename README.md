@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Pradnyeshp/Claude-Skills/ci.yml?branch=main&label=CI)](https://github.com/Pradnyeshp/Claude-Skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/Pradnyeshp/Claude-Skills)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-57-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-59-blue)](#skills)
 ![Last commit](https://img.shields.io/github/last-commit/Pradnyeshp/Claude-Skills)
 [![Stars](https://img.shields.io/github/stars/Pradnyeshp/Claude-Skills?style=social)](https://github.com/Pradnyeshp/Claude-Skills/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -70,6 +70,8 @@ Collection of helpful Claude Code skills for software development.
 | [Retry](/.claude/skills/retry/SKILL.md) | `/retry <call>` | Add retry-with-backoff to a flaky external call, safely for idempotent ops |
 | [Security Headers](/.claude/skills/security-headers/SKILL.md) | `/security-headers` | Add/harden CSP, HSTS, CORS, and friends to defend against XSS and clickjacking |
 | [Flaky Test](/.claude/skills/flaky-test/SKILL.md) | `/flaky-test <test>` | Find and fix the source of a test's nondeterminism, not mask it with retries |
+| [Stash](/.claude/skills/stash/SKILL.md) | `/stash <action>` | Save, restore, and manage work-in-progress with git stash, safely |
+| [Cherry-pick](/.claude/skills/cherry-pick/SKILL.md) | `/cherry-pick <sha>` | Apply specific commits onto another branch (backport a fix) with conflict handling |
 
 ## Installation
 
@@ -157,6 +159,8 @@ These skills support **two invocation methods** — use whichever feels natural:
 /retry "the payment API client"  # adds retry-with-backoff to a flaky call
 /security-headers        # adds/hardens CSP, HSTS, CORS, and other headers
 /flaky-test "the checkout test"  # finds and fixes the source of test flakiness
+/stash save "wip on parser"  # shelves your uncommitted changes to switch context
+/cherry-pick abc123      # applies a specific commit onto the current branch
 ```
 
 ### Natural language (conversational)
@@ -337,6 +341,12 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > this test is flaky, fix it
 > why does this test pass sometimes and fail other times
+
+> stash my changes so I can switch branches
+> pop my stashed work back
+
+> cherry-pick that commit onto main
+> backport this fix to the release branch
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
