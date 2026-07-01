@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Pradnyeshp/Claude-Skills/ci.yml?branch=main&label=CI)](https://github.com/Pradnyeshp/Claude-Skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/Pradnyeshp/Claude-Skills)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-61-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-63-blue)](#skills)
 ![Last commit](https://img.shields.io/github/last-commit/Pradnyeshp/Claude-Skills)
 [![Stars](https://img.shields.io/github/stars/Pradnyeshp/Claude-Skills?style=social)](https://github.com/Pradnyeshp/Claude-Skills/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -74,6 +74,8 @@ Collection of helpful Claude Code skills for software development.
 | [Cherry-pick](/.claude/skills/cherry-pick/SKILL.md) | `/cherry-pick <sha>` | Apply specific commits onto another branch (backport a fix) with conflict handling |
 | [Worktree](/.claude/skills/worktree/SKILL.md) | `/worktree <action>` | Manage multiple working trees so you can work on several branches at once |
 | [Rebase](/.claude/skills/rebase/SKILL.md) | `/rebase <base>` | Replay a branch's commits onto a new base, safely, with conflict handling |
+| [Idempotency](/.claude/skills/idempotency/SKILL.md) | `/idempotency <endpoint>` | Add idempotency keys so a retried write produces one effect, not two |
+| [Pagination](/.claude/skills/pagination/SKILL.md) | `/pagination <endpoint>` | Add offset or cursor pagination so list responses stay fast and bounded |
 
 ## Installation
 
@@ -165,6 +167,8 @@ These skills support **two invocation methods** — use whichever feels natural:
 /cherry-pick abc123      # applies a specific commit onto the current branch
 /worktree add the release branch  # checks out another branch in a sibling directory
 /rebase main             # replays the current branch's commits onto the latest main
+/idempotency "POST /payments"  # adds an idempotency key so retries don't double-charge
+/pagination "GET /users"  # adds cursor/offset pagination to a list endpoint
 ```
 
 ### Natural language (conversational)
@@ -357,6 +361,12 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > rebase my branch onto the latest main
 > update my branch with main without a merge commit
+
+> make the payments endpoint idempotent
+> prevent duplicate charges when a request is retried
+
+> add pagination to the users endpoint
+> this list returns too many rows, page it
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
