@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Pradnyeshp/Claude-Skills/ci.yml?branch=main&label=CI)](https://github.com/Pradnyeshp/Claude-Skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/Pradnyeshp/Claude-Skills)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-63-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-65-blue)](#skills)
 ![Last commit](https://img.shields.io/github/last-commit/Pradnyeshp/Claude-Skills)
 [![Stars](https://img.shields.io/github/stars/Pradnyeshp/Claude-Skills?style=social)](https://github.com/Pradnyeshp/Claude-Skills/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -76,6 +76,8 @@ Collection of helpful Claude Code skills for software development.
 | [Rebase](/.claude/skills/rebase/SKILL.md) | `/rebase <base>` | Replay a branch's commits onto a new base, safely, with conflict handling |
 | [Idempotency](/.claude/skills/idempotency/SKILL.md) | `/idempotency <endpoint>` | Add idempotency keys so a retried write produces one effect, not two |
 | [Pagination](/.claude/skills/pagination/SKILL.md) | `/pagination <endpoint>` | Add offset or cursor pagination so list responses stay fast and bounded |
+| [Webhook](/.claude/skills/webhook/SKILL.md) | `/webhook <provider>` | Securely verify, de-dupe, and process an inbound webhook |
+| [Audit Log](/.claude/skills/audit-log/SKILL.md) | `/audit-log <area>` | Add an append-only audit trail of who did what, when |
 
 ## Installation
 
@@ -169,6 +171,8 @@ These skills support **two invocation methods** — use whichever feels natural:
 /rebase main             # replays the current branch's commits onto the latest main
 /idempotency "POST /payments"  # adds an idempotency key so retries don't double-charge
 /pagination "GET /users"  # adds cursor/offset pagination to a list endpoint
+/webhook "the Stripe payment webhook"  # verifies, de-dupes, and processes it safely
+/audit-log "permission changes"  # records who changed what, when, append-only
 ```
 
 ### Natural language (conversational)
@@ -367,6 +371,12 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add pagination to the users endpoint
 > this list returns too many rows, page it
+
+> verify the signature on my Stripe webhook
+> my webhook fires twice, make it idempotent
+
+> add an audit log for admin actions
+> track who changed permissions and when
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
