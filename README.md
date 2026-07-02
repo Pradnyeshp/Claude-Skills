@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Pradnyeshp/Claude-Skills/ci.yml?branch=main&label=CI)](https://github.com/Pradnyeshp/Claude-Skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/Pradnyeshp/Claude-Skills)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-65-blue)](#skills)
+[![Skills](https://img.shields.io/badge/skills-67-blue)](#skills)
 ![Last commit](https://img.shields.io/github/last-commit/Pradnyeshp/Claude-Skills)
 [![Stars](https://img.shields.io/github/stars/Pradnyeshp/Claude-Skills?style=social)](https://github.com/Pradnyeshp/Claude-Skills/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -78,6 +78,8 @@ Collection of helpful Claude Code skills for software development.
 | [Pagination](/.claude/skills/pagination/SKILL.md) | `/pagination <endpoint>` | Add offset or cursor pagination so list responses stay fast and bounded |
 | [Webhook](/.claude/skills/webhook/SKILL.md) | `/webhook <provider>` | Securely verify, de-dupe, and process an inbound webhook |
 | [Audit Log](/.claude/skills/audit-log/SKILL.md) | `/audit-log <area>` | Add an append-only audit trail of who did what, when |
+| [Graceful Shutdown](/.claude/skills/graceful-shutdown/SKILL.md) | `/graceful-shutdown` | Handle SIGTERM — drain in-flight work and close connections cleanly |
+| [Soft Delete](/.claude/skills/soft-delete/SKILL.md) | `/soft-delete <model>` | Make deletes recoverable with deleted_at, scoped reads, and safe uniqueness |
 
 ## Installation
 
@@ -173,6 +175,8 @@ These skills support **two invocation methods** — use whichever feels natural:
 /pagination "GET /users"  # adds cursor/offset pagination to a list endpoint
 /webhook "the Stripe payment webhook"  # verifies, de-dupes, and processes it safely
 /audit-log "permission changes"  # records who changed what, when, append-only
+/graceful-shutdown       # drains in-flight requests and closes connections on SIGTERM
+/soft-delete "the User model"  # makes deletes recoverable with a deleted_at column
 ```
 
 ### Natural language (conversational)
@@ -377,6 +381,12 @@ Just ask Claude in plain English — it will automatically detect and invoke the
 
 > add an audit log for admin actions
 > track who changed permissions and when
+
+> add graceful shutdown so deploys don't drop requests
+> handle SIGTERM and drain connections cleanly
+
+> make deletes on the User model recoverable
+> add soft delete with a deleted_at column
 ```
 
 Both methods produce identical results. Slash commands are faster for muscle memory; natural language is easier when you don't remember the exact command name.
